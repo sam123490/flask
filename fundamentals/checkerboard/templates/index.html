@@ -11,12 +11,15 @@
     <h1 style="color: {{color_two}};background-color: {{color_one}};">***checkerboard***</h1>
     <table>
         {% for i in range(rows) %}
-        <tr>
-            {% for i in range(columns) %}
-            <td class="square" style="background-color: {{color_one}};"></td>
-            <td class="square" style="background-color: {{color_two}};"></td>
-            {% endfor %}
-        </tr>
+            <tr>
+                {% for x in range(col) %}
+                    {% if (x + i) % 2 == 0 %}
+                        <td style="background-color: {{color_one}};"></td>
+                        {% else %}
+                        <td style="background-color: {{color_two}};"></td>
+                    {% endif %}
+                {% endfor %}
+            </tr>
         {% endfor %}
     </table>
 </body>

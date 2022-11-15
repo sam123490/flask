@@ -10,8 +10,9 @@ h1 {
 }
 table {
     margin: 0 auto;
+    border-collapse: collapse;
 }
-.square {
+td {
     height: 75px;
     width: 75px;
 }
