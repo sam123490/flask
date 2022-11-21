@@ -4,22 +4,21 @@ app.secret_key = 'super-secret-password'
 
 @app.route('/')
 def home():
+    if "count" not in session:
+        session["count"] = 0
+    session["count"] += 1
     return render_template('index.html')
 
 @app.route('/add_view', methods=['POST'])
 def add_view():
-    # print("THIS IS WORKING!!! =)")
-    # session['view'] = request.form
-    total_views = 0
-    for i in range(len(session)):
-        total_views += 1
-    print(total_views)
-    # print(session)
+    print("THIS IS WORKING!!! =)")
+    session["count"] += 1
     return redirect('/')
 
 @app.route('/destroy_session', methods=['POST'])
 def destroy_session():
     print("THIS IS ALSO WORKING!!! =)")
+    session["count"] = 0
     return redirect('/')
 
 
